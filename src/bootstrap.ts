@@ -1,5 +1,6 @@
 import {bootstrap} from 'angular2/platform/browser';
-import {ROUTER_PROVIDERS} from 'angular2/router';
+import {provide} from "angular2/core";
+import {ROUTER_PROVIDERS, HashLocationStrategy, LocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 // include for development builds
 import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
@@ -25,6 +26,7 @@ function main() {
         // These are dependencies of our App
         HTTP_PROVIDERS,
         ROUTER_PROVIDERS,
+        provide(LocationStrategy, {useClass: HashLocationStrategy}), // use # urls instead of html 5 urls for the router
         TranslateService, // this provider has been defined in bootstrap and will be the same for all components
         ELEMENT_PROBE_PROVIDERS // remove in production
     ])

@@ -22,8 +22,8 @@ import {About} from "./components/about/about";
     template: require('./app.html')
 })
 @RouteConfig([
-    {path: '/', component: Home, name: 'Home'},
-    {path: '/About', component: About, name: 'About'}
+    {path: '/...', component: Home, name: 'Home', useAsDefault: true},
+    {path: '/About/...', component: About, name: 'About'}
 ])
 export class App {
     url: string = 'https://github.com/ocombe/ng2-webpack';
